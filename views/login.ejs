@@ -1,18 +1,29 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+
 <h1>Login</h1>
 <% if (messages.error) { %>
     <%= messages.error %>
 <% } %>
 <form action="/login" method="POST">
-    <div>
-        <Eabel for="email">Email</Eabel>
-        <input type="email" id="email" name="email">
+    <div class="mb-3"> 
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" class="form-control" aria-labelledby="emailHelpBlock" required>
     </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" name="password" class="form-control" aria-labelledby="passwordHelpBlock" required>
     </div> 
-    <button type="submit">Login</button>
+    <br>
+    <button type="submit" class="btn btn-primary" >Login</button>
 </form>
 
-<h3>Don't have an account?</h3>
-<a href="/register">Register</a>
+<h3>Don't have an account? <a href="/register">Register</a> </h3>
+
+</body>
+</html>

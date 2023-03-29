@@ -4,6 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const express = require('express')
 const app = express()
+const path = require('path')
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 const flash = require('express-flash')
@@ -32,12 +33,25 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverrride('_method'))
 
+app.use(
+    "/css",
+    express.static(path.join(__dirname, "node_modules/bootstrap/dist/css"))
+    )
+app.use(
+    "/js",
+    express.static(path.join(__dirname, "node_modules/bootstrap/dist/js"))
+)
+app.use("/js", express.static(path.join(__dirname, "node_modules/jquery/dist"))
+)
+
 app.get('/', checkAuthenticated, (req,res) => {
     res.render('index.ejs', { name: req.user.name })
+    res.sendFile(path.join(__dirname, "views/index.ejs"))
 })
 
 app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs')
+    res.sendFile(path.join(__dirname, "views/login.ejs"))
 })
 app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
     successRedirect: '/',
@@ -47,6 +61,7 @@ app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
 
 app.get('/register', checkNotAuthenticated, (req, res) => {
     res.render('register.ejs')
+    res.sendFile(path.join(__dirname, "views/register.ejs"))
 })
 
 app.post('/register', checkNotAuthenticated, async (req,res) => {

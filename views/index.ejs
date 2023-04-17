@@ -1,12 +1,12 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="./css/bootstrap.min.css">
-    </head>
-<body>
-<h1>Hi <%= name %></h1>
+<head>
+ <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
 
-<form action="/logout?_method=DELETE" method="POST">
-    <button type="submit" class="btn btn-primary" >Log Out</button>
-</form>
+<body class="container">
+    <h1>Hi <%= name %></h1>
+    <form action="/logout?_method=DELETE" method="POST">
+        <div class="mb-3">
+            <button type="submit" class="btn btn-dark">LogOut</button>
+        </div>
+    </form>
 </body>
-</html>

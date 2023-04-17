@@ -1,31 +1,20 @@
-<html>
-
 <head>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
 
-<body>
-
-<h1>Register</h1>
-<form action="/register" method="POST">
-    <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" id="name" name="name" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="email" id="email" name="email" class="form-control" required>
-    </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" id="password" name="password" class="form-control" required>
-    </div>
-    <br>
-    <button type="submit" class="btn btn-primary">Register</button>
-</form>
-
-<h3>Already Registered? <a href="/login">Log In</a> </h3>
-
+<body class="container">
+    <h1>Register</h1>
+    <form action="/register" method="POST" class="form-control">
+        <div class="mb-3">
+            <input type="name" name="name" id="name" required placeholder="Name" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input type="email" name="email" id="email" required placeholder="Email" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input type="password" name="password" id="password" required placeholder="Password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-secondary">Register</button>
+    </form>
+    <p>Already have an account? <a href="/login">Login</a></p>
 </body>
-</html>
-
